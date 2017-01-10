@@ -1,0 +1,26 @@
+Line:
+1. Can access line members through the 'members' attribute, which is an array initialized at the creation of the line instance.
+Members can be added to the back of the line via the #join method and removed from the line viad the #leave method.
+
+2. Members of the line can be accessed viad their array index in the 'members' attribute. 
+The member at the front, back, and middle of the line can be easily accessed viad the #front, #back, and #middle methods respectively.
+The #search method can be used to determine the presence of a given individual in the line. If they are present, the person is returned. Otherwise, nil is returned.
+
+3. You can use this data structure to monitor situations where the 'first in' gets precedence over those who come later. My wife's spin class comes to mind.
+Those who are on the wait list get into the class once room in the class opens up due to cancellations. This structure could model the 'wait list', and people would
+be deleted once they were added to the class in the case of a cancellation.
+
+Pixel: 
+1. Can access color values and x/y coordinates through attributes 'red'/'green'/'blue' and 'x'/'y' respectively.
+
+2. Can simply call each attribute to determine its value (i.e. pixel.red, pixel.x, etc).
+
+3. Can use for any 'item' that needs to be represented in an x, y coordinate system. May not have red/blue/green as the 'item', but rather a person or other object.
+
+Screen:
+1. Can access the width & height of the screen through the 'width' and 'height' attributes respectively. The matrix information containing the pixel at each
+x, y coordinate is contained within the 'matrix' attribute. Pixels can be inserted using the #insert method, and are checked for validity first using the #inbounds method.
+
+2. Can find the pixel at any given (valid) location using the #at method.
+
+3. Anything that needed to house data using an x, y coordinate system could use this structure. Seats in a movie theatre is 1 such 'real life' situation.

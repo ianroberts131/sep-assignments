@@ -1,5 +1,4 @@
 include RSpec
-
 require_relative 'line'
 
 RSpec.describe Line, type: Class do

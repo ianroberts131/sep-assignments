@@ -4,19 +4,20 @@
 # Pixels also require a coordinate location: x and y.
 
 class Pixel
-  attr_accessor :red
-  attr_accessor :green
-  attr_accessor :blue
-  attr_accessor :x
-  attr_accessor :y
-
+  attr_accessor :red, :green, :blue, :x, :y
 
   def initialize(red, green, blue, x, y)
+    @red = validate_color(red)
+    @green = validate_color(green)
+    @blue = validate_color(blue)
+    @x = x
+    @y = y
   end
 
   private
 
   def validate_color(color)
+    color <= 0 ? color = [0, color].max : color = [color, 255].min
   end
 
 end
