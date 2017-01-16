@@ -1,0 +1,24 @@
+1. What is Spatial Locality and why does it benefit performance?
+Spacial locality refers to data structures with data storage locations that are close to one another.
+An array, for example, exhibits spacial locality because each item is right next to each other in storage.
+Such data structures benefit performance by limiting the number of RAM lookups, since multiple items can be
+retreived from RAM and placed in the cache at the same time.
+
+2. The tests I created for this are at the bottom of linked_list.rb. Following is the output:
+
+Testing the efficiency of creating a 10,000 item array: 
+  0.000000   0.000000   0.000000 (  0.000047)
+Testing the efficiency of creating a 10,000 item linked list: 
+  0.000000   0.010000   0.010000 (  0.001313)
+-------------------------------------------
+Testing the efficiency of accessing the 5,000th element of an array: 
+  0.000000   0.000000   0.000000 (  0.000001)
+Testing the efficiency of accessing the 5,000th element of a linked list: 
+  0.000000   0.000000   0.000000 (  0.000192)
+--------------------------------------------
+Testing the efficiency of removing the 5,000th element of an array: 
+  0.000000   0.000000   0.000000 (  0.000015)
+Testing the efficiency of removing the 5,000th element of a linked list: 
+  0.000000   0.000000   0.000000 (  0.000229)
+  
+Based on this, it's clear that creating arrays and accessing/deleting items from them is more efficient than the equivalent tasks with a linked list.
