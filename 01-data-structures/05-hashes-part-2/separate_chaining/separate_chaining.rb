@@ -20,11 +20,6 @@ class SeparateChaining
       @items[index].add_to_tail(node)
     end
     resize if self.load_factor > @max_load_factor
-    
-    puts "Just inserted another item with key: #{key} and value: #{value}"
-    puts "The hash size is now #{self.size}"
-    puts "The hash is #{self.inspect}"
-    puts "--------------------------------"
   end
 
   def [](key)
@@ -87,7 +82,34 @@ class SeparateChaining
       end
     end
   end
+  
+  def print_array
+    puts "The current load factor is #{self.load_factor}"
+    @items.each_with_index do |branch, index|
+      puts "Branch at array index #{index}:"
+      if (branch == nil)
+        print "- Empty branch"
+        puts ""
+      else
+        current = branch.head
+        node = 1
+        while (current != nil)
+          puts "- Node #{node}:"
+          puts "    - Key:    #{current.key}"
+          puts "    - Value:  #{current.value}"
+          current = current.next
+          node += 1
+        end
+      end
+    end
+  end
 end
+
+hash = SeparateChaining.new(4)
+hash["key one"] = "The first item"
+hash["key two"] = "The second item"
+hash["key three"] = "The third item"
+hash.print_array
 
 
 

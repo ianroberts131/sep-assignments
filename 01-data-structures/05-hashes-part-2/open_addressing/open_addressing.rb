@@ -16,11 +16,6 @@ class OpenAddressing
       index = next_open_index(index)
     end
     @items[index] = node
-    puts "Just inserted another item with key: #{key} and value: #{value}"
-    puts "It was inserted at index: #{index}"
-    puts "The hash size is now #{self.size}"
-    puts "The hash is #{self.inspect}"
-    puts "---------------------------------"
   end
 
   def [](key)
@@ -86,5 +81,29 @@ class OpenAddressing
       end
     end
   end
+  
+  def print_array
+    @items.each_with_index do |item, index|
+      puts "Array index #{index}:"
+      if (item == nil)
+        print "- Empty array item"
+        puts ""
+      else
+        puts "- Key:    #{item.key}"
+        puts "- Value:  #{item.value}"
+      end
+    end
+  end
 end
 
+hash = OpenAddressing.new(4)
+puts "Inserting 4 items..."
+hash["key one"] = "The first item"
+hash["key two"] = "The second item"
+hash["key three"] = "The third item"
+hash["key four"] = "The fourth item"
+hash.print_array
+puts "-------------------------------"
+puts "Inserting a 5th item..."
+hash["key five"] = "The fifth item"
+hash.print_array
