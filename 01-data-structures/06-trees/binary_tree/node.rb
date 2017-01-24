@@ -4,7 +4,15 @@ class Node
   attr_accessor :left
   attr_accessor :right
   attr_accessor :parent
-
+  
+  def <=(other)
+    self.rating <= other.rating
+  end
+  
+  def >=(other)
+    self.rating >= other.rating
+  end
+  
   def initialize(title, rating)
     @title = title
     @rating = rating

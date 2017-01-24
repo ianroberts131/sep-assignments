@@ -1,50 +1,33 @@
 require_relative 'node'
 
 class BinarySearchTree
+  include Comparable
   attr_accessor :root
-  # attr_accessor :items
 
   def initialize(root)
     @root = root
-    # @items =[@root]
   end
 
   def insert(root, node)
     return nil if node == nil
     # Base Case 1: Node is less than parent node and left node unfilled
-    if (node.rating <= root.rating && root.left == nil)
+    if (node <= root && root.left == nil)
       root.left = node
       node.parent = root
-      # parent_index = @items.index(root)
-      # child_index = parent_index * 2 + 1
-      # if (child_index >= @items.length)
-        # items_to_add = ( ( @items.length + 1 ) / 2 ) * 2
-        # @items + Array.new(items_to_add)
-      # end
-      
-      # @items[child_index] = node
       return node
     end
     
     # Base Case 2: Node is greater than parent node and right node unfilled
-    if (node.rating >= root.rating && root.right == nil)
+    if (node >= root && root.right == nil)
       root.right = node
       node.parent = root
-      parent_index = @items.index(root)
-      child_index = parent_index * 2 + 2
-      if (child_index >= @items.length)
-        items_to_add = ( ( @items.length + 1 ) / 2 ) * 2
-        @items + Array.new(items_to_add)
-      end
-      
-      @items[child_index] = node
       return node
     end
     
     # If appropriate node is not available for insertion, recursively search until 1 is found
-    if (node.rating <= root.rating && root.left != nil)
+    if (node <= root && root.left != nil)
       insert(root.left, node)
-    elsif (node.rating >= root.rating && root.right != nil)
+    elsif (node >= root && root.right != nil)
       insert(root.right, node)
     end
   end
@@ -136,37 +119,40 @@ tree.insert(root, sandlot)
 
 tree.printf
 
+
 require 'benchmark'
 puts "-----------------------------------------------------------"
 puts "Benchmark Testing:"
-puts "Test how long it takes to insert 100,000 numbers"
+puts "Test how long it takes to insert 100 numbers"
 print Benchmark.measure{
-  root = Node.new(1,1)
+  root = Node.new("1",1)
   tree = BinarySearchTree.new(root)
-  (2..100000).each do |number|
-    node = Node.new(number, number)
+  (2..100).each do |number|
+    node = Node.new("#{number}", number)
     tree.insert(root, node)
   end
 }
 
-# puts "Test how long it takes to find the 50,000th element"
-# root = Node.new(1,1)
-# tree = BinarySearchTree.new(root)
-# (2..100000).each do |number|
-#   node = Node.new(number, number)
-#   tree.insert(root, node)
-# end
-# print Benchmark.measure{
-#   tree.find(root, 50000)
-# }
+puts "Test how long it takes to find the 20th element"
 
-# puts "Test how long it takes to delete the 50,000th element"
-# root = Node.new(1,1)
-# tree = BinarySearchTree.new(root)
-# (2..100000).each do |number|
-#   node = Node.new(number, number)
-#   tree.insert(root, node)
-# end
-# print Benchmark.measure{
-#   tree.delete(root, 50000)
-# }
+root = Node.new("1",1)
+tree = BinarySearchTree.new(root)
+(2..100).each do |number|
+  node = Node.new("#{number}", number)
+  tree.insert(root, node)
+end
+print Benchmark.measure{
+  tree.find(root, "20")
+}
+
+puts "Test how long it takes to delete the 20th element"
+
+root = Node.new(1,1)
+tree = BinarySearchTree.new(root)
+(2..100).each do |number|
+  node = Node.new("#{number}", number)
+  tree.insert(root, node)
+end
+print Benchmark.measure{
+  tree.delete(root, "20")
+}

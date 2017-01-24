@@ -129,35 +129,35 @@ heap.printf
 require 'benchmark'
 puts "-----------------------------------------------------------"
 puts "Benchmark Testing:"
-puts "Test how long it takes to insert 100,000 numbers"
+puts "Test how long it takes to insert 100 numbers"
 print Benchmark.measure{
   root = Node.new(1,1)
   heap = MinHeap.new(root)
-  (2..100000).each do |number|
-    node = Node.new(number, number)
+  (2..100).each do |number|
+    node = Node.new("#{number}", number)
     heap.insert(root, node)
   end
 }
 
-puts "Test how long it takes to find the 50,000th element"
+puts "Test how long it takes to find the 20th element"
 root = Node.new(1,1)
 heap = MinHeap.new(root)
-(2..100000).each do |number|
-  node = Node.new(number, number)
+(2..100).each do |number|
+  node = Node.new("#{number}", number)
   heap.insert(root, node)
 end
 print Benchmark.measure{
-  heap.find(root, 50000)
+  heap.find(root, "20")
 }
 
-puts "Test how long it takes to delete the 50,000th element"
+puts "Test how long it takes to delete the 20th element"
 root = Node.new(1,1)
 heap = MinHeap.new(root)
-(2..100000).each do |number|
-  node = Node.new(number, number)
+(2..100).each do |number|
+  node = Node.new("#{number}", number)
   heap.insert(root, node)
 end
 print Benchmark.measure{
-  heap.delete(root, 50000)
+  heap.delete(root, "20")
 }
 

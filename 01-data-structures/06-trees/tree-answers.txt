@@ -1,0 +1,62 @@
+1. Difference in output between binary search tree and heap:
+
+Binary Search Tree Output:
+
+The Big Lebowski: 81
+Primer: 71
+Memento: 92
+Cloud Atlas: 66
+Fight Club: 79
+American History X: 83
+Looper: 93
+The Sandlot: 58
+Forrest Gump: 72
+The Shawshank Redemption: 91
+Pulp Fiction: 94
+The Usual Suspects: 88
+
+Min Heap Output:
+
+The Sandlot: 58
+Primer: 71
+Cloud Atlas: 66
+The Shawshank Redemption: 91
+Forrest Gump: 72
+Fight Club: 79
+The Big Lebowski: 81
+Looper: 93
+Pulp Fiction: 94
+Memento: 92
+The Usual Suspects: 88
+American History X: 83
+
+As expected, the Min Heap output is more heavily weighted (by rating) towards the bottom.
+
+2. Due to RAM limitations on Cloud 9, I could only find/delete in the binary search tree up to around item 20 (I believe due to all the recursion).
+
+Following are the outputs of the Benchmark tests for each:
+
+Binary Search Tree:
+
+Benchmark Testing:
+Test how long it takes to insert 100 numbers
+  0.000000   0.000000   0.000000 (  0.004568)
+Test how long it takes to find the 20th element
+  0.480000   0.010000   0.490000 (  0.489285)
+Test how long it takes to delete the 20th element
+  0.280000   0.000000   0.280000 (  0.277548)
+
+Min Heap:
+
+Benchmark Testing:
+Test how long it takes to insert 100 numbers
+  0.000000   0.000000   0.000000 (  0.000572)
+Test how long it takes to find the 20th element
+  0.000000   0.000000   0.000000 (  0.000011)
+Test how long it takes to delete the 20th element
+  0.000000   0.000000   0.000000 (  0.000030)
+  
+Based on these tests, it appears that the Min Heap is much faster at inserting, finding, and deleting items.
+However, I think much of this is due to the RAM issues mentioned above. In order to find an item, the Heap
+basically has to search through every single item in the array and thus runs O(n). I believe that heaps are much more geared towards
+finding minimum/maximum values, while the binary search tree ought to be faster at finding values in between.
