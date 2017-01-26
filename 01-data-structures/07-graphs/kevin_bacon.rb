@@ -76,12 +76,10 @@ class AdjMatrix
       
       node_queue = children + node_queue
       
-    
     end
   end
   
   def print_matrix
-    field_size = @matrix.flatten.collect{|i|i.to_s.size}.max
     @matrix.each do |row|
       index = @matrix.index(row)
       if index < 10
@@ -89,7 +87,7 @@ class AdjMatrix
       else
         print "#{index}: #{@actors_array[index]}" + " " * (25 - @actors_array[index].length)
       end
-      puts (row.collect{|i| ' ' * (field_size - i.to_s.size) + i.to_s}).join('  ')    
+      puts (row.collect{|i| i.to_s}).join('  ')    
     end
   end
 end
@@ -104,10 +102,8 @@ interstellar = ["Ellen Burstyn", "Matthew McConaughey", "Mackenzie Foy", "John L
                 "Anne Hathaway", "Andrew Borba", "Wes Bentley", "William Devane", "Michael Caine", "David Gyasi"]
 
 matrix.add_film("Footloose", footloose)
-puts "The matrix size is: #{matrix.matrix.length}"
 matrix.print_matrix
 matrix.add_film("Interstellar", interstellar)
-puts "The matrix size is: #{matrix.matrix.length}"
 matrix.print_matrix
 
 puts "We're gonna find Wes Bentley"
