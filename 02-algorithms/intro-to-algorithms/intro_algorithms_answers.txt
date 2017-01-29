@@ -1,0 +1,77 @@
+1. Brushing teeth:
+
+DEF BRUSH_TEETH
+
+  SET Faucet to 'ON'
+  RINSE toothbrush
+  SET Facuet to 'OFF'
+  
+  LOCATE toothpaste
+  APPLY toothpaste to toothbrush
+  
+  SET timer to 2 minutes
+  
+  START timer
+  WHILE timer > 0
+    BRUSH teeth
+  ENDWHILE
+  
+  Set Facuet to 'ON'
+  RINSE toothbrush
+  SET Faucet to 'OFF'
+
+END DEF
+
+2. Making scrambled eggs
+
+DEF MAKE_EGGS
+
+  Input: Number of eggs wanted
+  
+  SET EGGS to 0
+  
+  WHILE EGGS is less than Input
+    Crack 1 egg into bowl
+    Throw away shell
+    
+    INCREMENT EGGS by 1
+  ENDWHILE
+  
+  SET stove to 'ON'
+  PLACE pan on stove
+  
+  POUR eggs into pan
+  
+  WHILE eggs are not cooked
+    COOK eggs
+  END
+  
+  PLACE cooked eggs on plate
+  
+END DEF
+
+3. Feed Dog
+
+DEF FEED_DOG
+
+  CLEAN water_bowl
+  CLEAN food_bowl
+  
+  OPEN cabinet
+  OPEN dog_food
+  SCOOP 1 cup of food and place in food_bowl
+  
+  CLOSE dog_food
+  CLOSE cabinet
+  
+  PLACE food_bowl on ground
+  
+  SET Faucet to 'ON'
+  WHILE water_bowl is not full
+    FILL water_bowl
+  ENDWHILE
+  SET Facuet to 'OFF'
+  
+  PLACE water_bowl on ground
+
+END DEF
