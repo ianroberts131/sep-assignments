@@ -10,7 +10,7 @@ class Node
 end
 
 class AdjMatrix
-  attr_accessor :root, :actors_array, :matrix, :film_hash
+  attr_accessor :actors_array, :matrix, :film_hash
   
   def initialize(name)
     root = Node.new(name)
