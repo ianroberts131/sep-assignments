@@ -26,3 +26,8 @@ puts "Fib(6) is #{fib(6)}"
 puts "Fib(7) is #{fib(7)}"
 puts "Fib(8) is #{fib(8)}"
 puts "Fib(9) is #{fib(9)}"
+
+puts "Fib(20) is #{fib(20)}"
+
+require 'benchmark'
+puts Benchmark.measure { fib(20) }
