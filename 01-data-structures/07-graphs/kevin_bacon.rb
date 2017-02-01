@@ -177,6 +177,6 @@ matrix.print_matrix
 puts "We're gonna find Matthew McConaughey's Bacon connection..."
 puts "#{matrix.find_kevin_bacon("Matthew McConaughey")}"
 
-puts "We're gonna find Leonardo DiCaprio's Bacon connection..."
-puts "#{matrix.find_kevin_bacon("Leonardo DiCaprio")}"
+puts "We're gonna find Ron Reiner's Bacon connection..."
+puts "#{matrix.find_kevin_bacon("Rob Reiner")}"
 
