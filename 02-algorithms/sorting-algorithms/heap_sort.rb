@@ -49,19 +49,31 @@ def heapify(collection, node_index, heap_size)
   return collection
 end
 
-collection = [15, 6, 4, 8, 5, 3, 1, 2, 7]
+array = [279, 242, 470, 451, 209, 30, 261, 222, 119, 91,
+          225, 360, 419, 431, 355, 149, 302, 172, 178, 494, 
+          259, 202, 250, 218, 17, 3, 20, 294, 115, 390, 164, 
+          470, 236, 452, 304, 104, 82, 29, 76, 214, 259, 323, 
+          273, 366, 31, 49, 401, 341, 138, 188]
 
 puts "The input array is:"
-puts "#{collection.inspect}"
+puts "#{array.inspect}"
 
-length = collection.length
+length = array.length
 
 node = (length / 2).floor
 
-new_array = build_heap(collection, collection.length)
+new_array = build_heap(array, array.length)
 
 puts "After building the heap, the array is:"
 puts "#{new_array.inspect}"
 
 puts "After the heap sort, the array is:"
-puts "#{heap_sort(collection)}"
+puts "#{heap_sort(array)}"
+
+require 'benchmark'
+
+puts "The heap sort speed is:"
+puts Benchmark.measure {
+  heap_sort(array)
+}
+
