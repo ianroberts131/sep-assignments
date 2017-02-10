@@ -1,0 +1,25 @@
+1. Describe an analogy for relating an algorithm that has efficiency O(1) and another algorithm that has O(2^n).
+
+An algorithm that has O(1) is a hyperloop from LA to SF and an algorithm that has O(2^n) is walking from LA to SF.
+
+2. The best case for binary search is that the target item is the middle item of the collection being searched.
+
+3. The worst case for binary search is that the target item is located either the first or last item of the collection (or isn't in the collection at all). This will take at most log(n) iterations
+
+4. The bounded case for binary search is any item that is between the best case and worst case scenarios (i.e. somewhere between 1 and log(n) iterations.
+
+5. See file 'Question 5 - Chart.PNG'.
+
+6. The data is exponential, and thus the limit as n goes to infinity is infinity.
+
+7. The Big O is O(2^n)
+
+8. See file 'linear_iterations.rb'
+
+9. See file 'Linear Search Graph.PNG'
+
+10. O(log n)
+
+11. Ω(1)
+
+12. θ(log n) - the fractional constant drops off
