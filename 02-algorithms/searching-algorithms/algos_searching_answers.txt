@@ -1,0 +1,41 @@
+1. Given the alphabetically sorted collection in this checkpoint, how man iterations would it take to find the value G using linear search?
+ANSWER: 7 iterations
+
+2. Given the alphabetically sorted collection in this checkpoint, how man iterations would it take to find the value G using binary search?
+ANSWER: 3 iterations
+
+3. Calculate fib(10), fib(11), and fib(12) by hand
+ANSWER:
+fib(0)  = 0 
+fib(1)  = 1
+fib(2)  = 1
+fib(3)  = 2
+fib(4)  = 3
+fib(5)  = 5
+fib(6)  = 8
+fib(7)  = 13
+fib(8)  = 21
+fib(9)  = 34
+fib(10) = 55
+fib(11) = 89
+fib(12) = 144
+
+Recursion Questions:
+
+Benchmark results for fib(20) using recursion:
+Fib(20) is 6765
+  0.000000   0.000000   0.000000 (  0.001451)
+
+Benchmark results for fib(20) using iteration:
+Fib(20) is 6765
+  0.000000   0.000000   0.000000 (  0.000006)
+  
+The iterative solution is much faster than the recursive solution
+
+1. Given an unsorted collection of a million items, which algorithm would you choose between linear search and binary search? Would you use an iterative or recursive solution?
+
+Binary search, by design, only works on a sorted collection. Thus, I would choose linear search for an unsorted collection of a million items. A recursive search would result in a massive amount of memory usage to keep all of the calls in the stack. Thus, I would use an iterative solution.
+
+2. Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? Would you use an iterative or recursive solution?
+
+I would use an iterative binary search for a collection of a million items. On a sorted array, binary search will only require log (base 2) n iterations in the worst case, while linear search requires up to n iterations on n items. Thus, if you are searching for the millionth item, linear search will take a million iterations, vs 20 (at most) for binary search. While the recursive binary search won't be nearly as taxing in terms of memory usage as the linear search (since it only takes at most 20 iterations), I would still use iteration to be as efficient as possible with regard to memory use.
