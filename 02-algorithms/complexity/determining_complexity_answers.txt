@@ -1,0 +1,17 @@
+1. O(1). No matter how big N gets, there will only be 1 operation - outputting the line "Goodbye World!" followed by the input.
+
+2. O(N). The function will iterate over every item in the collection (N items) and compare each to a running maximum. As the collection size grows, the number of operations grows linearly.
+
+3. Assuming 'N' is the total number of elements in all the sub-arrays (and not the number of arrays), then this is also O(N). It's effectively the same as number 2 - goes through each element and compares them to a running 'largest' in order to obtain the largest element.
+
+4. O(2^n). While I initially figured this out by looking at individual cases and deducing the pattern, it can also be proven by induction.
+
+Base case n = 1 is trivial
+
+Assume F(n-1) has complexity O(2^n-1)
+
+F(n) = F(n-1) + F(n-2) + O(1) = O(2^n-1) + O(2^n-2) + O(1) = O(2^n)
+
+5. O(n). Rather than solve the fibonacci sequence recursively (as with question 4), this will simply loop through each n. While there are a few operations on each iterations, in terms of complexity these constants will be ignored. Thus, as n grows exponentially, it will just be some constant times n, which is O(n).
+
+6.  This is just the quick sort algorithm (with the partition as the first element. The worst case scenario is O(n^2). In the worst case, the partition is always completely unbalanced, and so there will need to be n recursive calls. For each call, all n elements are touched, which leads to n^2 operations. The average case is O(n lg n), since in general the partition will split the collection in 2 so that there are lg n recursive calls of n operations.
