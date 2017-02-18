@@ -1,0 +1,14 @@
+1. improving_complexity_version_one
+This is the insertion sort algorithm, which has time complexity O(n^2). The worst case scenario is the the element being inserted is greater than every element in the array. Since each iteration will take some constant amount of time (c), this works out to the following number of iterations:
+
+c * 1 + c * 2 + c * 3 + ... + c * (n - 1) = c * (1 + 2 + 3 + ... + (n - 1))
+
+Using the formula for the sum of an arithmetic series, this becomes c * (n - 1) / 2 * ( 1 + n - 1).
+
+If you take the limit of this, it reduces to n ^ 2.
+
+2. improving_complexity_version_two
+This is simply a heap sort algorithm, which has complexity O(n lg n). The call to heapify runs O(lg n), since there are a maximum of lg n levels of the tree. Since the heapsort algorithm itself runs this heaify function approximately n times, the algorithm has complexity of O(n lg n). While the build heap function runs O(n), it does not impact the complexity, which is dominated by the n lg n term, i.e. O ( n + n * lg n) ~ O (n lg n).
+
+3. improving_complexity_version_three
+This is also a heap sort algorithm, so it has the same time complexity has version 2. However, this algorithm was modified to perform in place (rather than having a separate 'sorted_array'), so the space complexity was improved.
